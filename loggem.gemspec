@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["istvan.demeter@emarsys.com"]
   spec.summary       = %q{Simple log wrapper with different formatters. Rails/ActiveRecord/Sequel support, so far}
   spec.description   = %q{}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/qw3r/loggem"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
