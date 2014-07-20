@@ -13,9 +13,9 @@ module Loggem
     config = app.config.loggem
 
     logger = Loggem::Logger.new config.logger
-    logger.formatter = config.fetch :formatter, ::Loggem::Formatters::Json.new
-    logger.context.merge! config.fetch(:context,  {})
-    config.fetch(:extensions, []).each { |ext| load_extension ext }
+    logger.formatter = config.formatter || ::Loggem::Formatters::Json.new
+    logger.context.merge!(config.context || {})
+    (config.extensions || []).each { |ext| load_extension ext }
 
     ::Rails.logger = app.config.logger = logger
   end
