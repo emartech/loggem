@@ -15,6 +15,11 @@ describe Loggem do
     before do
       module Rails
       end
+
+      module ActionController
+        class Base
+        end
+      end
     end
 
     it "should setup rails integration" do
@@ -23,6 +28,7 @@ describe Loggem do
       expect(loggem).to receive(:formatter=).with('custom formatter')
       expect(config).to receive(:logger=).with(loggem)
       expect(Rails).to receive(:logger=).with(loggem)
+      expect(ActionController::Base).to receive(:logger=).with(loggem)
 
       subject.setup_rails(rails)
     end

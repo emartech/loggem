@@ -17,7 +17,9 @@ module Loggem
     logger.context.merge!(config.context || {})
     (config.extensions || []).each { |ext| load_extension ext }
 
-    ::Rails.logger = app.config.logger = logger
+    app.config.logger = logger
+    ::Rails.logger = logger
+    ::ActionController::Base.logger = logger
   end
 
 
