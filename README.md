@@ -1,4 +1,4 @@
-# Loggem [![Build Status](https://travis-ci.org/emartech/loggem.svg?branch=master)](https://travis-ci.org/emartech/loggem)
+# Loggem [![Build Status](https://travis-ci.org/emartech/loggem.svg?branch=master)](https://travis-ci.org/emartech/loggem) [![Code Climate](https://codeclimate.com/github/emartech/loggem/badges/gpa.svg)](https://codeclimate.com/github/emartech/loggem)
 
 Simple log wrapper with different formatters. Minimal Rails/ActiveRecord/Sequel support, so far
 
