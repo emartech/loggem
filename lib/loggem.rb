@@ -5,6 +5,7 @@ require 'loggem/event'
 require 'loggem/formatters/raw'
 require 'loggem/formatters/json'
 require 'loggem/formatters/key_value'
+require 'loggem/formatters/human_readable'
 
 
 module Loggem
