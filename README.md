@@ -1,24 +1,21 @@
 # Loggem [![Build Status](https://travis-ci.org/emartech/loggem.svg?branch=master)](https://travis-ci.org/emartech/loggem) [![Code Climate](https://codeclimate.com/github/emartech/loggem/badges/gpa.svg)](https://codeclimate.com/github/emartech/loggem) [![Gem Version](https://badge.fury.io/rb/loggem.svg)](http://badge.fury.io/rb/loggem)
 
-Simple log wrapper with different formatters. Minimal Rails/ActiveRecord/Sequel support, so far
+Simple log wrapper with different formatters for Rails. Minimal ActiveRecord/Sequel support, so far.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add it your application's Gemfile and run `bundle`:
 
     gem 'loggem'
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install loggem
-
 ## Usage
+Add the following lines to the `config/application.rb`
 
-TODO: Write usage instructions here
+    config.loggem.enabled = true
+    # use your favorite logger (or skip it setting it to use STDOUT)
+    config.loggem.logger = ::Logging.logger.root
+    # replace activerecord's logsubscriber to the loggem's one
+    config.loggem.extensions = %w[active_record]
 
 ## Contributing
 
