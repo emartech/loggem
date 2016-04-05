@@ -72,6 +72,22 @@ describe Loggem::Logger do
     end
 
 
+    it 'should log the result of the block given' do
+      allow(::Loggem::Event).to receive(:new).
+          with(level: :info, message: 'raw message', payload: {}, context: {}).
+          and_return(event)
+      expect(logger).to receive(:info).with('formatted message')
+
+      subject.formatter = formatter
+      subject.info { 'raw message' }
+    end
+
+
+    it 'should raise an error if neither message nor block was given' do
+      expect { subject.info }.to raise_error ArgumentError
+    end
+
+
     it 'should log a message with payload' do
       allow(::Loggem::Event).to receive(:new).
                                   with(level: :info, message: 'raw message', payload: 'payload', context: {}).
