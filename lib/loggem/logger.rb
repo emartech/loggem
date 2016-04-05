@@ -24,7 +24,11 @@ module Loggem
 
 
     [:debug, :info, :warn, :error, :fatal].each do |level|
-      define_method level do |message, payload = {}|
+      define_method level do |message = nil, payload = {}, &block|
+        message ||= block.call if block
+
+        raise ArgumentError, 'Neither message nor block was given' if message.nil?
+
         log level, message, payload
       end
     end
