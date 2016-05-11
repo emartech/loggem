@@ -115,4 +115,14 @@ describe Loggem::Logger do
 
   end
 
+
+  describe 'by default on initialize' do
+    subject { described_class.new }
+
+    it 'uses the core Logger class' do
+      expect(::Logger).to receive(:new).with(STDOUT).and_call_original
+      subject
+    end
+  end
+
 end
